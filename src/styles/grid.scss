@@ -1,0 +1,22 @@
+@import 'susy';
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+);
+
+body {
+  font-size: 25px;
+  color: red;
+}
+
+.wrapper {
+  @include container(25em);
+}
+
+nav {
+  @include span(25%);
+}
