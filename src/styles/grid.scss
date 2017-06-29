@@ -5,7 +5,7 @@ $susy: (
   gutters: 1/4,
   math: fluid,
   output: float,
-  gutter-position: inside,
+  gutter-position: inside
 );
 
 body {
@@ -14,7 +14,15 @@ body {
 }
 
 .wrapper {
-  @include container(25em);
+  @include container(960px);
+  height: 100vh;
+
+  .col {
+    @include span(1);
+    height: 100vh;
+    background: gray;
+    background-clip: content-box;
+  }
 }
 
 nav {
