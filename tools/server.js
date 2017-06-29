@@ -1,10 +1,9 @@
-// Create a Browsersync instance
-const bs = require('browser-sync').create();
-const moduleImporter = require('sass-module-importer');
-const sass = require('node-sass');
 const fs = require('fs');
+const sass = require('node-sass');
+const moduleImporter = require('sass-module-importer');
+const bs = require('browser-sync').create();
 
-const buildSass = require('./buildSass');
+const buildSass = require('./build');
 
 bs.watch('src/*.scss', function (event, file) {
     if (event === 'change') {
