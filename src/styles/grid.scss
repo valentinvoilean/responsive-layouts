@@ -1,30 +1,75 @@
 @import 'susy';
 
-$susy: (
-  columns: 12,
-  gutters: 1/4,
-  math: fluid,
-  output: float,
-  gutter-position: inside
-);
+// Breakpoints
+$mq-mobile: 0;
+$mq-tablet: 768px;
+$mq-desktop: 1224px;
+$mq-desktop-hd: 1824px;
 
-body {
-  font-size: 25px;
-  color: red;
-}
+// Layouts
+$l-mobile: layout(auto 12 .5 inside fluid isolate);
+$l-tablet: layout(12 static (33px 20px) inside);
+$l-desktop: layout(12 static (60px 20px) inside);
+$l-desktop-hd: layout(12 static (60px 40px) inside);
 
-.wrapper {
-  @include container(960px);
-  height: 100vh;
+@include susy-breakpoint($mq-mobile, $l-mobile) {
+  .container {
+    @include container($l-mobile);
 
-  .col {
-    @include span(1);
-    height: 100vh;
-    background: gray;
-    background-clip: content-box;
+    @for $i from 1 through 12 {
+      .col-#{$i},
+      .col-#{$i}-mobile {
+        @include span($i);
+      }
+    }
   }
 }
 
-nav {
-  @include span(25%);
+@include susy-breakpoint($mq-tablet, $l-tablet) {
+  .container {
+    @include container($l-tablet);
+
+    @for $i from 1 through 12 {
+      .col-#{$i},
+      .col-#{$i}-tablet {
+        @include span($i);
+      }
+    }
+  }
+}
+
+@include susy-breakpoint($mq-desktop, $l-desktop) {
+  .container {
+    @include container($l-desktop);
+
+    @for $i from 1 through 12 {
+      .col-#{$i},
+      .col-#{$i}-desktop {
+        @include span($i);
+      }
+    }
+  }
+}
+
+@include susy-breakpoint($mq-desktop-hd, $l-desktop-hd) {
+  .container {
+    @include container($l-desktop-hd);
+
+    @for $i from 1 through 12 {
+      .col-#{$i},
+      .col-#{$i}-desktop-hd {
+        @include span($i);
+      }
+    }
+  }
+}
+
+.testGrid {
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      background: #e6e6e6;
+      background-clip: content-box;
+      height: 100vh;
+    }
+  }
 }
