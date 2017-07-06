@@ -40,14 +40,20 @@ $layouts: (
   }
 }
 
+// generate the columns for each breakpoint
 @each $breakpoint, $value in $breakpoints {
-  $mq: map-get($breakpoints, $breakpoint);
-  $l: map-get($layouts, $breakpoint);
+  $index: index(($breakpoints), ($breakpoint $value));
+  $mapLength: length($breakpoints);
 
   @for $i from 1 through 12 {
     .col-#{$breakpoint}-#{$i} {
-      @include susy-breakpoint($mq, $l) {
-        @include span($i);
+      @for $j from $index through $mapLength {
+        $mq: nth(nth($breakpoints, $j), 2);
+        $l: nth(nth($layouts, $j), 2);
+
+        @include susy-breakpoint($mq, $l) {
+          @include span($i);
+        }
       }
     }
   }
