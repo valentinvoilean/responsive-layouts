@@ -6,7 +6,7 @@ $breakpoints: (
   s: 768px,
   m: 1024px,
   l: 1440px,
-  xl: 1800px,
+  xl: 1880px,
 );
 
 // Layouts
@@ -15,7 +15,7 @@ $layouts: (
   s: layout(12 static (35px 25px) inside),
   m: layout(12 static (55px 25px) inside),
   l: layout(12 static (70px 30px) inside),
-  xl: layout(12 static (90px 30px) inside)
+  xl: layout(12 static (110px 40px) inside)
 );
 
 // Generate the container & columns
