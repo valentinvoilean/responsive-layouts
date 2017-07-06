@@ -40,6 +40,19 @@ $layouts: (
   }
 }
 
+@each $breakpoint, $value in $breakpoints {
+  $mq: map-get($breakpoints, $breakpoint);
+  $l: map-get($layouts, $breakpoint);
+
+  @for $i from 1 through 12 {
+    .col-#{$breakpoint}-#{$i} {
+      @include susy-breakpoint($mq, $l) {
+        @include span($i);
+      }
+    }
+  }
+}
+
 .testGrid {
   [class^='col-'], [class*=' col-'] {
     background: #e6e6e6;
