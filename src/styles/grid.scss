@@ -2,18 +2,18 @@
 
 // Breakpoints
 $breakpoints: (
-  mobile: 0,
-  tablet: 768px,
-  desktop: 1224px,
-  desktop-hd: 1824px
+  s: 0,
+  m: 768px,
+  l: 1024px,
+  xl: 1440px
 );
 
 // Layouts
 $layouts: (
-  mobile: layout(auto 12 .5 inside fluid isolate),
-  tablet: layout(12 static (33px 20px) inside),
-  desktop: layout(12 static (60px 20px) inside),
-  desktop-hd: layout(12 static (60px 40px) inside)
+  s: layout(auto 12 .5 inside fluid isolate),
+  m: layout(12 static (33px 20px) inside),
+  l: layout(12 static (60px 20px) inside),
+  xl: layout(12 static (60px 40px) inside)
 );
 
 // Generate the container & columns
