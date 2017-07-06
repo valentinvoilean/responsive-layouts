@@ -2,18 +2,20 @@
 
 // Breakpoints
 $breakpoints: (
-  s: 0,
-  m: 768px,
-  l: 1024px,
-  xl: 1440px
+  xs: 0,
+  s: 768px,
+  m: 1024px,
+  l: 1440px,
+  xl: 1800px,
 );
 
 // Layouts
 $layouts: (
-  s: layout(auto 12 .5 inside fluid isolate),
-  m: layout(12 static (33px 20px) inside),
-  l: layout(12 static (60px 20px) inside),
-  xl: layout(12 static (60px 40px) inside)
+  xs: layout(auto 12 .5 inside fluid isolate),
+  s: layout(12 static (35px 25px) inside),
+  m: layout(12 static (55px 25px) inside),
+  l: layout(12 static (70px 30px) inside),
+  xl: layout(12 static (90px 30px) inside)
 );
 
 // Generate the container & columns
