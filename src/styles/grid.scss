@@ -33,57 +33,9 @@ $layouts: (
     }
 
     @for $i from 1 through 12 {
-      .col-#{$i} {
+      .col-#{$i},
+      .col-#{$i}-#{$breakpoint} {
         @include span($i);
-      }
-    }
-  }
-}
-
-// Generate mq-min
-@each $breakpoint, $value in $breakpoints {
-  $mq: map-get($breakpoints, $breakpoint);
-  $l: map-get($layouts, $breakpoint);
-
-  @include susy-breakpoint($mq, $l) {
-    @for $i from 1 through 12 {
-      .col-#{$i}-#{$breakpoint}-min {
-        @include span($i);
-      }
-    }
-  }
-}
-
-@each $breakpoint, $value in $breakpoints {
-  $mq: map-get($breakpoints, $breakpoint);
-  $i: index(($breakpoints), ($breakpoint $value));
-  $l: map-get($layouts, $breakpoint);
-
-  // if next breakpoint available
-  @if $i + 1 <= length($breakpoints) {
-    $nextMq: nth(nth($breakpoints, $i + 1), 2);
-
-    @include susy-breakpoint($mq $nextMq - 1, $l) {
-      @for $i from 1 through 12 {
-        .col-#{$i}-#{$breakpoint} {
-          @include span($i);
-        }
-      }
-    }
-
-    @include susy-breakpoint(0 $nextMq - 1, $l) {
-      @for $i from 1 through 12 {
-        .col-#{$i}-#{$breakpoint}-max {
-          @include span($i);
-        }
-      }
-    }
-  } @else {
-    @include susy-breakpoint($mq, $l) {
-      @for $i from 1 through 12 {
-        .col-#{$i}-#{$breakpoint} {
-          @include span($i);
-        }
       }
     }
   }
