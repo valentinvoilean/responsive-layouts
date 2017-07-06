@@ -3,18 +3,18 @@
 // Breakpoints
 $breakpoints: (
   xs: 0,
-  s: 768px,
-  m: 1024px,
-  l: 1440px,
+  sm: 768px,
+  md: 1024px,
+  lg: 1440px,
   xl: 1880px,
 );
 
 // Layouts
 $layouts: (
-  xs: layout(auto 12 .5 inside fluid isolate),
-  s: layout(12 static (35px 25px) inside),
-  m: layout(12 static (55px 25px) inside),
-  l: layout(12 static (70px 30px) inside),
+  xs: layout(540px 12 .5 inside fluid isolate),
+  sm: layout(12 static (35px 25px) inside),
+  md: layout(12 static (55px 25px) inside),
+  lg: layout(12 static (70px 30px) inside),
   xl: layout(12 static (110px 40px) inside)
 );
 
@@ -26,6 +26,10 @@ $layouts: (
   @include susy-breakpoint($mq, $l) {
     .container {
       @include container($l);
+
+      @if $mq != 0 {
+        max-width: 100%;
+      }
     }
 
     @for $i from 1 through 12 {
