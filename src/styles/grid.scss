@@ -33,8 +33,7 @@ $layouts: (
     }
 
     @for $i from 1 through 12 {
-      .col-#{$i},
-      .col-#{$breakpoint}-#{$i} {
+      .col-#{$i} {
         @include span($i);
       }
     }
